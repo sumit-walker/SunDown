@@ -8,29 +8,19 @@ function locomotiv(){
 
 
 
-let container=document.querySelector(".feature");
-let imageBox=document.querySelector(".fixed-image");
+let container = document.querySelector(".feature");
+let imageBox = document.querySelector(".fixed-image");
+let bars = document.querySelectorAll("#bar");
 
-container.addEventListener("mouseenter",function(){
-    imageBox.style.display="block";
-    
+// Show image on bar hover
+bars.forEach(bar => {
+    bar.addEventListener("mouseenter", function () {
+        let image = bar.getAttribute("data-image");
+        imageBox.style.backgroundImage = `url(${image})`;
+        imageBox.style.display = "block";
+    });
+
 });
-
-container.addEventListener("mouseleave",function(){
-    imageBox.style.display="none";
-    
-});
-
-
-let bar=document.querySelectorAll("#bar");
-
-for(let bars of bar){
-    bars.addEventListener("mouseenter",function(){
-        let image=bars.getAttribute("data-image");
-        imageBox.style.backgroundImage=`url(${image})`;
-    })
-    
-}
 
 
 let h1=document.querySelector(".h1 h1");
@@ -146,3 +136,4 @@ LocomotiveGsap()
 
 swiper();
 locomotiv()
+
